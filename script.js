@@ -11,11 +11,13 @@ function newGame() {
     secretNumber = Math.trunc(Math.random() * 99) + 1
 
     lives = 20
-    document.querySelector('.number').textContent = "?"
+    displayMessage('Start guessing...')
+    document.querySelector('.number').textContent = '?'
     document.querySelector('.number').style.width = '15rem'
     document.querySelector('.score').textContent = lives
     document.querySelector('body').style.backgroundColor = '#222'
     document.querySelector('.guess').value = ''
+
 }
 
 function displayMessage(message) {
@@ -28,12 +30,12 @@ document.querySelector('.check').addEventListener('click', function () {
     const guess = Number(document.querySelector('.guess').value)
 
     if (!guess) {
-        displayMessage("😲 No Number!")
+        displayMessage('😲 No Number!')
     }
 
 
     else if (guess === secretNumber) {
-        displayMessage("😊 You Won!")
+        displayMessage('😊 You Won!')
         document.querySelector('body').style.backgroundColor = '#149414'
         document.querySelector('.number').style.width = '30rem'
         document.querySelector('.number').textContent = secretNumber
@@ -45,7 +47,7 @@ document.querySelector('.check').addEventListener('click', function () {
     }
 
     else if (guess < secretNumber) {
-        displayMessage("😏 Too low!")
+        displayMessage('😏 Too low!')
         lives--
         document.querySelector('.score').textContent = lives
 
@@ -53,7 +55,7 @@ document.querySelector('.check').addEventListener('click', function () {
     }
 
     else {
-        displayMessage("😏 Too High!")
+        displayMessage('😏 Too High!')
         lives--
         document.querySelector('.score').textContent = lives
 
@@ -62,6 +64,6 @@ document.querySelector('.check').addEventListener('click', function () {
 
     if (lives <= 0) {
         document.querySelector('body').style.backgroundColor = '#8B0000'
-        displayMessage("😢 You lost!")
+        displayMessage('😢 You lost!')
     }  
 })
