@@ -1,17 +1,16 @@
 'use strict'
 
 let secretNumber = Math.trunc(Math.random() * 20)
-let lives = 10
+let lives = 20
 let highScore = 0
 
 document.querySelector('.again').addEventListener('click', newGame)
 
 function newGame() {
 
-    secretNumber = Math.trunc(Math.random() * 20)
-    console.log(secretNumber)
+    secretNumber = Math.trunc(Math.random() * 99) + 1
 
-    lives = 10
+    lives = 20
     document.querySelector('.number').textContent = "?"
     document.querySelector('.number').style.width = '15rem'
     document.querySelector('.score').textContent = lives
